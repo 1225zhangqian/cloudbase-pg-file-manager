@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>测试创建 Bucket</title></head>
+<body>
+  <script type="module">
+    import cloudbase from 'https://esm.sh/@cloudbase/js-sdk@3.6.3'
+
+    const app = cloudbase.init({
+      env: 'test-pg-d3gf5tl148895663c',
+      accessKey: 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjYxYTQzYTI3LWIxOTQtNDY4MC04NTg5LWZjMGZlZmQxYmM1MCJ9.eyJpc3MiOiJodHRwczovL3Rlc3QtcGctZDNnZjV0bDE0ODg5NTY2M2MuYXAtc2hhbmdoYWkudGNiLWFwaS50ZW5jZW50Y2xvdWRhcGkuY29tIiwic3ViIjoiYW5vbiIsImF1ZCI6InRlc3QtcGctZDNnZjV0bDE0ODg5NTY2M2MiLCJleHAiOjQwODc4NTgwOTIsImlhdCI6MTc4NDE3NDg5Miwibm9uY2UiOiI1c1RBZVB6OVFFeUJxenFmVFZ0VkF3IiwiYXRfaGFzaCI6IjVzVEFlUHo5UUV5QnF6cWZUVnRWQXciLCJuYW1lIjoiQW5vbnltb3VzIiwic2NvcGUiOiJhbm9ueW1vdXMiLCJwcm9qZWN0X2lkIjoidGVzdC1wZy1kM2dmNXRsMTQ4ODk1NjYzYyIsIm1ldGEiOnsicGxhdGZvcm0iOiJQdWJsaXNoYWJsZUtleSJ9LCJyb2xlIjoiYW5vbiIsImlzX2Fub255bW91cyI6dHJ1ZSwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiYW5vbnltb3VzIiwicHJvdmlkZXJzIjpbImFub255bW91cyJdfSwidXNlcl9tZXRhZGF0YSI6eyJuYW1lIjoiQW5vbnltb3VzIn0sInVzZXJfdHlwZSI6IiIsImNsaWVudF90eXBlIjoiY2xpZW50X3VzZXIiLCJpc19zeXN0ZW1fYWRtaW4iOmZhbHNlfQ.H0xBYSjW0QAsJsQ6t-eJSC2u6496FKzNqaXMdQcfdjgPN4eMu7azMo2wvXzvYHK-QJ1siOgThRvDNVIyfNJpsgQd3Eqip9sDBKmyxT4olBLedGTvVZgFNRvTr347fVCSZErzCgV9x7r40Bh59WLMxegbVSB-SNiO9Fnuz6j8wVxnrrCKLc1n_x6YJtgevM-WeGRDbYsvjqMJlntwjVnstDWbOUkdEctB_D10VmEaTsLdv6oarAuHe50JUX30LHhPdTHI-mrbrDLI2Y3Syvnp_M5EZ_jw5Fce3bcaRHmeqj18ongwaTPzgUtIKlaedhpgu5O9SHjQLjzyJtws19gToA'
+    })
+
+    // 创建新 Bucket
+    const result = await app.storage.createBucket('sdk-created', {
+      public: true,
+      type: 'STANDARD',
+      fileSizeLimit: '50MB',
+      allowedMimeTypes: ['image/png', 'image/jpeg']
+    })
+    console.log('创建结果:', result)
+
+    // 列出所有 Bucket
+    const { data } = await app.storage.listBuckets()
+    console.log('所有 Bucket:', data)
+  </script>
+  <div>打开 Console 查看结果</div>
+</body>
+</html>

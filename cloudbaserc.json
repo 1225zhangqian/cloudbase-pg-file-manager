@@ -1,0 +1,18 @@
+{
+  "version": "2.0",
+  "envId": "brucetest-5gcnyrjl25c08a34",
+  "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+
+  "app": {
+    "serviceName": "cloudbase-pg-file-manager-02886",
+    "root": ".",
+    "outputDir": "./dist",
+    "framework": "vite",
+    "installCommand": "npm install",
+    "buildCommand": "npm run build",
+    "deployPath": "/cloudbase-pg-file-manager-02886",
+    "ignore": [
+      "node_modules"
+    ]
+  }
+}
